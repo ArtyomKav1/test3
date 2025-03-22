@@ -11,6 +11,7 @@ function Main() {
   const posts = useSelector((state: AppStateType) => state.app.posts);
   const dispath = useDispatch();
   useEffect(() => {
+    debugger
     const setPost = async function (date: string) {
       const data = await getNews(date);
       if (data.status === 200) {
@@ -50,8 +51,8 @@ function Main() {
   return (
     <>
       <div className="overflow-x-hidden">
-        {posts.map((item) => (
-          <div>
+        {posts.map((item, ind: number) => (
+          <div key={ind}>
             <ItemContainer itemArray={item} />
           </div>
         ))}

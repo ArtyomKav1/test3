@@ -8,9 +8,11 @@ function ItemContainer(props: { itemArray: Array<itemType> }) {
           {props.itemArray[0] && props.itemArray[0].publishedAt.slice(0, 10)}
         </div>
         <div>
-          {props.itemArray.map((item) => (
-            <div>
-              <Item item={item} />
+          {props.itemArray.map((item, ind: number) => (
+            <div key={ind}>
+              <a href={item.url}>
+                <Item item={item} />
+              </a>
             </div>
           ))}
         </div>
